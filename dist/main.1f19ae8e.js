@@ -117,79 +117,77 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"C:/Users/asus/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
+})({"main.js":[function(require,module,exports) {
+var $siteList = $(".siteList");
+var $lastLi = $siteList.find("li.last");
+var x = localStorage.getItem("x"); //读取localStorage的数据项目
 
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
+var xObject = JSON.parse(x); //字符串转换为对象
+
+var hashMap = xObject || [{
+  logo: "A",
+  url: "https://www.acfun.cn"
+}, {
+  logo: "B",
+  url: "https://www.bilibili.com"
+}]; //简化url
+
+var simplifyUrl = function simplifyUrl(url) {
+  return url.replace("https://", "").replace("http://", "").replace("www.", "").replace(/\/.*/, ""); //使用正则表达式 删除‘/’开头的内容
+};
+
+var render = function render() {
+  $siteList.find("li:not(.last)").remove();
+  hashMap.forEach(function (node, index) {
+    //插值法
+    var $li = $("<li>\n          <div class=\"site\">\n            <div class=\"logo\">".concat(node.logo, "</div>\n            <div class=\"link\">").concat(simplifyUrl(node.url), "</div>\n            <div class=\"close\">\n              <svg class=\"icon\">\n                <use xlink:href=\"#icon-close\"></use>\n              </svg>\n            </div>\n          </div>\n        </li>")).insertBefore($lastLi);
+    $li.on("click", function () {
+      window.open(node.url); //打开新窗口
+    }); //删除网站
+
+    $li.on("click", ".close", function (e) {
+      e.stopPropagation(); //阻止冒泡
+
+      hashMap.splice(index, 1);
+      render();
+    });
+  });
+};
+
+render();
+$(".addButton").on("click", function () {
+  var url = window.prompt("请问你要添加的网址是啥？");
+
+  if (url.indexOf("http") !== 0) {
+    url = "https://" + url;
   }
 
-  return bundleURL;
-}
+  console.log(url);
+  hashMap.push({
+    logo: simplifyUrl(url)[0].toUpperCase(),
+    logoType: "text",
+    url: url
+  });
+  render();
+});
 
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+window.onbeforeunload = function () {
+  //当窗口即将被关闭时会触发该事件
+  var string = JSON.stringify(hashMap); //将hashMap转换为字符串（localStorage只能存字符串）
 
-    if (matches) {
-      return getBaseURL(matches[0]);
+  localStorage.setItem("x", string); //增加数据项目
+};
+
+$(document).on("keypress", function (e) {
+  var key = e.key; //const key = e.key;
+
+  for (var i = 0; i < hashMap.length; i++) {
+    if (hashMap[i].logo.toLowerCase() === key) {
+      window.open(hashMap[i].url);
     }
   }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"C:/Users/asus/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-
-    cssTimeout = null;
-  }, 50);
-}
-
-module.exports = reloadCSS;
-},{"./bundle-url":"C:/Users/asus/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/bundle-url.js"}],"style.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"C:/Users/asus/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/css-loader.js"}],"C:/Users/asus/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+});
+},{}],"C:/Users/asus/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -393,5 +391,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["C:/Users/asus/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/style.e308ff8e.js.map
+},{}]},{},["C:/Users/asus/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js","main.js"], null)
+//# sourceMappingURL=/main.1f19ae8e.js.map
