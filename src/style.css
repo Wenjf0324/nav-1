@@ -23,7 +23,7 @@ body{background: #eee;}
 /* 如果宽度大于500px */
 @media(min-width: 500px){
     .searchForm{
-        max-width:400px;  /* 当元素有最大宽度或者宽度固定时使用margin:0 auto居中 */
+        max-width:400px;
         margin-left: auto;
         margin-right:auto;
     }
@@ -41,7 +41,7 @@ body{background: #eee;}
     padding:0 28px;
     border:none;
     border-radius:4px;
-    background: #0282b9;
+    background: #4285F4;
     color:white;
     font-size:16px;
 }
@@ -66,7 +66,7 @@ body{background: #eee;}
     }
 }
 .siteList > li {
-    margin-bottom:10px;
+    margin-bottom:15px;
 }
 @media(min-width:500px){
     .siteList > li {
@@ -82,7 +82,7 @@ body{background: #eee;}
     background:white;
     border:1px solid #ddd;
     border-radius:4px;
-    padding:20px 0;
+    padding:10px 0;
     position:relative;
     cursor:pointer;
 }
@@ -118,7 +118,7 @@ body{background: #eee;}
     justify-content:center;
     align-items:center;
     flex-direction:column;
-    padding:20px 0;
+    padding:10px 0;
 }
 .siteList .addButton .icon{
     width:64px;
