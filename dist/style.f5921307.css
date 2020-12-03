@@ -62,7 +62,7 @@ body{background: #eee;}
     .siteList{
         margin-left:0;
         margin-right:-25px;
-        justify-self: flex-start;
+        justify-content: flex-start;
     }
 }
 .siteList > li {
@@ -137,4 +137,4 @@ body{background: #eee;}
     align-items:center;
 }
 
-/*# sourceMappingURL=style.4c7541d1.css.map */
+/*# sourceMappingURL=style.f5921307.css.map */
