@@ -3,8 +3,10 @@ const $lastLi = $siteList.find("li.last");
 const x = localStorage.getItem("x"); //读取localStorage的数据项目
 const xObject = JSON.parse(x); //字符串转换为对象
 const hashMap = xObject || [
-  { logo: "A", url: "https://www.acfun.cn" },
-  { logo: "B", url: "https://www.bilibili.com" },
+  { logo: "W", url: "https://www.w3school.com.cn" },
+  { logo: "J", url: "https://www.jquery123.com" },
+  { logo: "V", url: "https://v3.vuejs.org" },
+  { logo: "I", url: "https://www.iconfont.cn" },
 ];
 
 //简化url

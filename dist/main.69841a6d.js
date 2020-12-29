@@ -125,11 +125,17 @@ var x = localStorage.getItem("x"); //读取localStorage的数据项目
 var xObject = JSON.parse(x); //字符串转换为对象
 
 var hashMap = xObject || [{
-  logo: "A",
-  url: "https://www.acfun.cn"
+  logo: "W",
+  url: "https://www.w3school.com.cn"
 }, {
-  logo: "B",
-  url: "https://www.bilibili.com"
+  logo: "J",
+  url: "https://www.jquery123.com"
+}, {
+  logo: "V",
+  url: "https://v3.vuejs.org"
+}, {
+  logo: "I",
+  url: "https://www.iconfont.cn"
 }]; //简化url
 
 var simplifyUrl = function simplifyUrl(url) {
@@ -188,4 +194,4 @@ $(document).on("keypress", function (e) {
   }
 });
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.c00cb160.js.map
+//# sourceMappingURL=main.69841a6d.js.map
