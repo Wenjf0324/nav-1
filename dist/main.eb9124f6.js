@@ -136,6 +136,9 @@ var hashMap = xObject || [{
 }, {
   logo: "I",
   url: "https://www.iconfont.cn"
+}, {
+  logo: "G",
+  url: "https://github.com"
 }]; //简化url
 
 var simplifyUrl = function simplifyUrl(url) {
@@ -194,4 +197,4 @@ $(document).on("keypress", function (e) {
   }
 });
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.69841a6d.js.map
+//# sourceMappingURL=main.eb9124f6.js.map

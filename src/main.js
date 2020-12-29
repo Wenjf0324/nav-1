@@ -7,6 +7,7 @@ const hashMap = xObject || [
   { logo: "J", url: "https://www.jquery123.com" },
   { logo: "V", url: "https://v3.vuejs.org" },
   { logo: "I", url: "https://www.iconfont.cn" },
+  { logo: "G", url: "https://github.com" },
 ];
 
 //简化url
