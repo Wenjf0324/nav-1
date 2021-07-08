@@ -41,7 +41,7 @@ body {
 @media (min-width: 500px) {
   .globalHeader {
     max-width: 400px;
-    margin: 60px auto 100px;
+    margin: 60px auto;
   }
 }
 .searchWays {
@@ -55,7 +55,7 @@ body {
   cursor: pointer;
 }
 .searchWays > li.selected {
-  color: #0379ac;
+  color: #0090ce;
 }
 .searchForm {
   display: flex;
@@ -126,7 +126,7 @@ body {
 }
 
 .siteList .site > .logo {
-  color: #0384bb;
+  color: #0090ce;
   width: 48px;
   height: 48px;
   display: flex;
@@ -136,7 +136,7 @@ body {
   text-transform: uppercase; /* 将字符串转为大写 */
 }
 .siteList .site > .link {
-  color: #0384bb;
+  color: #0090ce;
   font-size: 14px;
   margin-top: 4px;
 }
@@ -163,7 +163,7 @@ body {
 .siteList .addButton {
   /* border: 1px solid #ddd; */
   background: rgba(0, 0, 0, 0.25);
-  color: #0384bb;
+  color: #0090ce;
   display: flex;
   justify-content: center;
   align-items: center;
