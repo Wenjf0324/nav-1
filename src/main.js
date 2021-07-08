@@ -1,7 +1,7 @@
 const $siteList = $(".siteList");
 const $lastLi = $siteList.find("li.last");
-const x = localStorage.getItem("x"); //读取localStorage的数据项目
-const xObject = JSON.parse(x); //字符串转换为对象
+const siteList = localStorage.getItem("siteList"); //读取localStorage的数据项目
+const xObject = JSON.parse(siteList); //字符串转换为对象
 const hashMap = xObject || [
   { logo: "W", url: "https://www.w3school.com.cn" },
   { logo: "J", url: "https://www.jquery123.com" },
@@ -9,6 +9,59 @@ const hashMap = xObject || [
   { logo: "I", url: "https://www.iconfont.cn" },
   { logo: "G", url: "https://github.com" },
 ];
+const searchWaysHash = [
+  {
+    way: "百度",
+    placeholder: "百度搜索",
+    action: "https://www.baidu.com/s",
+    query: "wd",
+  },
+  {
+    way: "谷歌",
+    placeholder: "Google 搜索",
+    action: "https://www.google.com/search",
+    query: "q",
+  },
+  {
+    way: "bing",
+    placeholder: "bing 搜索",
+    action: "https://cn.bing.com/search",
+    query: "q",
+  },
+  {
+    way: "搜狗",
+    placeholder: "搜狗搜索",
+    action: "https://www.sogou.com/sogou",
+    query: "query",
+  },
+  {
+    way: "360",
+    placeholder: "360 搜索",
+    action: "https://www.so.com/s",
+    query: "q",
+  },
+];
+
+//渲染搜索方式列表
+const renderSearchWays = () => {
+  const $searchWays = $(".searchWays");
+  const $searchForm = $(".searchForm");
+  const $input = $(".searchForm > input");
+
+  searchWaysHash.forEach((item, index) => {
+    const $li = $(`<li>${item.way}</li>`).appendTo($searchWays);
+    if (index === 0) {
+      $li.addClass("selected");
+    }
+    $li.on("click", function () {
+      $(this).addClass("selected").siblings().removeClass("selected");
+      $searchForm.attr("action", item.action);
+      $input.attr("placeholder", item.placeholder);
+      $input.attr("name", item.query);
+    });
+  });
+};
+renderSearchWays();
 
 //简化url
 const simplifyUrl = (url) => {
@@ -19,8 +72,9 @@ const simplifyUrl = (url) => {
     .replace(/\/.*/, ""); //使用正则表达式 删除‘/’开头的内容
 };
 
+//渲染站点
 const render = () => {
-  $siteList.find("li:not(.last)").remove();
+  $siteList.find("li:not(.last)").remove(); //删除旧的站点
   hashMap.forEach((node, index) => {
     //插值法
     const $li = $(`<li>
@@ -34,12 +88,13 @@ const render = () => {
             </div>
           </div>
         </li>`).insertBefore($lastLi);
+    //跳转页面，代替 a 标签
     $li.on("click", () => {
       window.open(node.url); //打开新窗口
     });
-    //删除网站
+    //删除站点
     $li.on("click", ".close", (e) => {
-      e.stopPropagation(); //阻止冒泡
+      e.stopPropagation(); //阻止冒泡，防止点击close时页面跳转
       hashMap.splice(index, 1);
       render();
     });
@@ -49,11 +104,11 @@ const render = () => {
 render();
 
 $(".addButton").on("click", () => {
-  let url = window.prompt("请问你要添加的网址是啥？");
+  let url = window.prompt("请输入你要添加的网址：");
   if (url.indexOf("http") !== 0) {
     url = "https://" + url;
   }
-  console.log(url);
+  // console.log(url);
   hashMap.push({
     logo: simplifyUrl(url)[0].toUpperCase(),
     logoType: "text",
@@ -62,14 +117,17 @@ $(".addButton").on("click", () => {
   render();
 });
 
+//用户关闭页面之前触发
 window.onbeforeunload = () => {
-  //当窗口即将被关闭时会触发该事件
+  // console.log("页面要关闭了");
   const string = JSON.stringify(hashMap); //将hashMap转换为字符串（localStorage只能存字符串）
-  localStorage.setItem("x", string); //增加数据项目
+  localStorage.setItem("siteList", string); //保存数据项目
 };
 
+//键盘导航
 $(document).on("keypress", (e) => {
-  const { key } = e; //const key = e.key;
+  console.log(e.key);
+  const { key } = e; //const key = e.key 变量名和属性名一样时可以用析构赋值
   for (let i = 0; i < hashMap.length; i++) {
     if (hashMap[i].logo.toLowerCase() === key) {
       window.open(hashMap[i].url);
