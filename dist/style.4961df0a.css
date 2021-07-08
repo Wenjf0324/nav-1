@@ -63,7 +63,8 @@ body {
   border: 1px solid #ddd;
   border-radius: 4px;
 }
-.searchForm > input:focus {
+.searchForm > input:focus,
+.searchForm > button:focus {
   outline: none;
 }
 .searchForm > button {
@@ -178,4 +179,4 @@ body {
 }
 
 
-/*# sourceMappingURL=style.61d1a0f6.css.map */
+/*# sourceMappingURL=style.4961df0a.css.map */
