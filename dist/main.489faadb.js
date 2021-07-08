@@ -146,14 +146,14 @@ var searchWaysHash = [{
   action: "https://www.baidu.com/s",
   query: "wd"
 }, {
-  way: "谷歌",
-  placeholder: "Google 搜索",
-  action: "https://www.google.com/search",
-  query: "q"
-}, {
   way: "bing",
   placeholder: "bing 搜索",
   action: "https://cn.bing.com/search",
+  query: "q"
+}, {
+  way: "谷歌",
+  placeholder: "Google 搜索",
+  action: "https://www.google.com/search",
   query: "q"
 }, {
   way: "搜狗",
@@ -250,4 +250,4 @@ $(document).on("keypress", function (e) {
   }
 });
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.61e586a4.js.map
+//# sourceMappingURL=main.489faadb.js.map

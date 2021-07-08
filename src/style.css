@@ -26,6 +26,12 @@ img {
 /* style */
 body {
   background: #eee;
+  min-width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+  background: url(./images/bg1.jpg) no-repeat center center;
+  background-size: cover;
+  vertical-align: middle;
 }
 
 .globalHeader {
@@ -49,7 +55,7 @@ body {
   cursor: pointer;
 }
 .searchWays > li.selected {
-  color: #0282b9;
+  color: #0379ac;
 }
 .searchForm {
   display: flex;
@@ -72,7 +78,7 @@ body {
   padding: 0 28px;
   border: none;
   border-radius: 4px;
-  background: #0282b9;
+  background: #0379ac;
   color: white;
   font-size: 15px;
 }
@@ -111,8 +117,8 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: white;
-  border: 1px solid #ddd;
+  background: rgba(0, 0, 0, 0.25);
+  /* border: 1px solid #ddd; */
   border-radius: 4px;
   padding: 20px 0;
   position: relative;
@@ -120,6 +126,7 @@ body {
 }
 
 .siteList .site > .logo {
+  color: #0384bb;
   width: 48px;
   height: 48px;
   display: flex;
@@ -129,10 +136,12 @@ body {
   text-transform: uppercase; /* 将字符串转为大写 */
 }
 .siteList .site > .link {
+  color: #0384bb;
   font-size: 14px;
   margin-top: 4px;
 }
 .siteList .site > .close {
+  color: #0384bb;
   position: absolute;
   top: 2px;
   right: 3px;
@@ -152,8 +161,9 @@ body {
 } */
 
 .siteList .addButton {
-  border: 1px solid #ddd;
-  background: white;
+  /* border: 1px solid #ddd; */
+  background: rgba(0, 0, 0, 0.25);
+  color: #0384bb;
   display: flex;
   justify-content: center;
   align-items: center;
