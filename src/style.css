@@ -25,17 +25,24 @@ img {
 
 /* style */
 body {
-  background: #eee;
+  background: #53565f;
   overflow-x: hidden;
 }
 
 .container {
   min-width: 100vw;
   min-height: 100vh;
-  background: url(./images/bg1.jpg) no-repeat fixed center center;
+  background: url(./images/bg1.jpg) no-repeat fixed 50% -85%;
   background-size: cover;
   vertical-align: middle;
   overflow: hidden;
+}
+
+@media (min-width: 500px) {
+  .container {
+    background: url(./images/bg1.jpg) no-repeat fixed 50% 45%;
+    background-size: cover;
+  }
 }
 
 .globalHeader {
@@ -121,7 +128,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: rgba(0, 0, 0, 0.25);
+  background: #fff;
   /* border: 1px solid #ddd; */
   border-radius: 4px;
   padding: 20px 0;
@@ -130,7 +137,6 @@ body {
 }
 
 .siteList .site > .logo {
-  color: #0090ce;
   width: 48px;
   height: 48px;
   display: flex;
@@ -140,12 +146,10 @@ body {
   text-transform: uppercase; /* 将字符串转为大写 */
 }
 .siteList .site > .link {
-  color: #0090ce;
   font-size: 14px;
   margin-top: 4px;
 }
 .siteList .site > .close {
-  color: #0384bb;
   position: absolute;
   top: 2px;
   right: 3px;
@@ -166,8 +170,8 @@ body {
 
 .siteList .addButton {
   /* border: 1px solid #ddd; */
-  background: rgba(0, 0, 0, 0.25);
-  color: #0090ce;
+  background: #fff;
+  border-radius: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
