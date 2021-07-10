@@ -26,12 +26,16 @@ img {
 /* style */
 body {
   background: #eee;
+  overflow-x: hidden;
+}
+
+.container {
   min-width: 100vw;
   min-height: 100vh;
-  overflow: hidden;
-  background: url(./images/bg1.jpg) no-repeat center center;
+  background: url(./images/bg1.jpg) no-repeat fixed center center;
   background-size: cover;
   vertical-align: middle;
+  overflow: hidden;
 }
 
 .globalHeader {

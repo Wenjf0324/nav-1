@@ -26,12 +26,16 @@ img {
 /* style */
 body {
   background: #eee;
+  overflow-x: hidden;
+}
+
+.container {
   min-width: 100vw;
   min-height: 100vh;
-  overflow: hidden;
-  background: url(bg1.febcb47a.jpg) no-repeat center center;
+  background: url(bg1.febcb47a.jpg) no-repeat fixed center center;
   background-size: cover;
   vertical-align: middle;
+  overflow: hidden;
 }
 
 .globalHeader {
@@ -193,4 +197,4 @@ body {
 }
 
 
-/*# sourceMappingURL=style.ca8edc4d.css.map */
+/*# sourceMappingURL=style.8d47642e.css.map */
