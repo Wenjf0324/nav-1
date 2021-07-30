@@ -3,7 +3,8 @@ const $lastLi = $siteList.find("li.last");
 const siteList = localStorage.getItem("siteList"); //读取localStorage的数据项目
 const xObject = JSON.parse(siteList); //字符串转换为对象
 const hashMap = xObject || [
-  { logo: "W", url: "https://www.w3school.com.cn" },
+  { logo: "W", url: "https://wangdoc.com/" },
+  { logo: "B", url: "https://bootcdn.cn/" },
   { logo: "J", url: "https://www.jquery123.com" },
   { logo: "V", url: "https://v3.vuejs.org" },
   { logo: "I", url: "https://www.iconfont.cn" },
@@ -90,7 +91,7 @@ const render = () => {
         </li>`).insertBefore($lastLi);
     //跳转页面，代替 a 标签
     $li.on("click", () => {
-      window.open(node.url); //打开新窗口
+      window.open(node.url);
     });
     //删除站点
     $li.on("click", ".close", (e) => {
@@ -108,7 +109,6 @@ $(".addButton").on("click", () => {
   if (url.indexOf("http") !== 0) {
     url = "https://" + url;
   }
-  // console.log(url);
   hashMap.push({
     logo: simplifyUrl(url)[0].toUpperCase(),
     logoType: "text",
@@ -121,7 +121,7 @@ $(".addButton").on("click", () => {
 window.onbeforeunload = () => {
   // console.log("页面要关闭了");
   const string = JSON.stringify(hashMap); //将hashMap转换为字符串（localStorage只能存字符串）
-  localStorage.setItem("siteList", string); //保存数据项目
+  localStorage.setItem("siteList", string);
 };
 
 //键盘导航

@@ -126,7 +126,10 @@ var xObject = JSON.parse(siteList); //字符串转换为对象
 
 var hashMap = xObject || [{
   logo: "W",
-  url: "https://www.w3school.com.cn"
+  url: "https://wangdoc.com/"
+}, {
+  logo: "B",
+  url: "https://bootcdn.cn/"
 }, {
   logo: "J",
   url: "https://www.jquery123.com"
@@ -202,7 +205,7 @@ var render = function render() {
     var $li = $("<li>\n          <div class=\"site\">\n            <div class=\"logo\">".concat(node.logo, "</div>\n            <div class=\"link\">").concat(simplifyUrl(node.url), "</div>\n            <div class=\"close\">\n              <svg class=\"icon\">\n                <use xlink:href=\"#icon-close\"></use>\n              </svg>\n            </div>\n          </div>\n        </li>")).insertBefore($lastLi); //跳转页面，代替 a 标签
 
     $li.on("click", function () {
-      window.open(node.url); //打开新窗口
+      window.open(node.url);
     }); //删除站点
 
     $li.on("click", ".close", function (e) {
@@ -220,8 +223,7 @@ $(".addButton").on("click", function () {
 
   if (url.indexOf("http") !== 0) {
     url = "https://" + url;
-  } // console.log(url);
-
+  }
 
   hashMap.push({
     logo: simplifyUrl(url)[0].toUpperCase(),
@@ -235,7 +237,7 @@ window.onbeforeunload = function () {
   // console.log("页面要关闭了");
   var string = JSON.stringify(hashMap); //将hashMap转换为字符串（localStorage只能存字符串）
 
-  localStorage.setItem("siteList", string); //保存数据项目
+  localStorage.setItem("siteList", string);
 }; //键盘导航
 
 
@@ -250,4 +252,4 @@ $(document).on("keypress", function (e) {
   }
 });
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.489faadb.js.map
+//# sourceMappingURL=main.92e973fb.js.map
