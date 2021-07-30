@@ -4,7 +4,6 @@ const siteList = localStorage.getItem("siteList"); //读取localStorage的数据
 const xObject = JSON.parse(siteList); //字符串转换为对象
 const hashMap = xObject || [
   { logo: "B", url: "https://bootcdn.cn/" },
-  { logo: "G", url: "https://github.com" },
   { logo: "I", url: "https://www.iconfont.cn" },
   { logo: "J", url: "https://www.jquery123.com" },
   { logo: "V", url: "https://v3.vuejs.org" },
