@@ -125,11 +125,14 @@ var siteList = localStorage.getItem("siteList"); //读取localStorage的数据�
 var xObject = JSON.parse(siteList); //字符串转换为对象
 
 var hashMap = xObject || [{
-  logo: "W",
-  url: "https://wangdoc.com/"
-}, {
   logo: "B",
   url: "https://bootcdn.cn/"
+}, {
+  logo: "G",
+  url: "https://github.com"
+}, {
+  logo: "I",
+  url: "https://www.iconfont.cn"
 }, {
   logo: "J",
   url: "https://www.jquery123.com"
@@ -137,11 +140,8 @@ var hashMap = xObject || [{
   logo: "V",
   url: "https://v3.vuejs.org"
 }, {
-  logo: "I",
-  url: "https://www.iconfont.cn"
-}, {
-  logo: "G",
-  url: "https://github.com"
+  logo: "W",
+  url: "https://wangdoc.com/"
 }];
 var searchWaysHash = [{
   way: "百度",
@@ -252,4 +252,4 @@ $(document).on("keypress", function (e) {
   }
 });
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.92e973fb.js.map
+//# sourceMappingURL=main.f04ddc00.js.map

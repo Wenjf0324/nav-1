@@ -115,7 +115,7 @@ body {
 }
 .siteList > li {
   width: 47%;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 @media (min-width: 500px) {
   .siteList > li {

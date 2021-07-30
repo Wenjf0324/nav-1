@@ -3,12 +3,12 @@ const $lastLi = $siteList.find("li.last");
 const siteList = localStorage.getItem("siteList"); //读取localStorage的数据项目
 const xObject = JSON.parse(siteList); //字符串转换为对象
 const hashMap = xObject || [
-  { logo: "W", url: "https://wangdoc.com/" },
   { logo: "B", url: "https://bootcdn.cn/" },
+  { logo: "G", url: "https://github.com" },
+  { logo: "I", url: "https://www.iconfont.cn" },
   { logo: "J", url: "https://www.jquery123.com" },
   { logo: "V", url: "https://v3.vuejs.org" },
-  { logo: "I", url: "https://www.iconfont.cn" },
-  { logo: "G", url: "https://github.com" },
+  { logo: "W", url: "https://wangdoc.com/" },
 ];
 const searchWaysHash = [
   {
